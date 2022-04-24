@@ -12,34 +12,54 @@
     <title>Library</title>
 </head>
 <body>
-    <header>
-        <h3 class="app-title">Library.</h3>
-    </header>
-    <div class="add-book-button-container">
-        <button class="new-book">+ New Book</button>
-    </div>
-    <div class="form-pop-up" hidden>
-        <form class="book-form">
-            <input type="text" class ="book-name" id="book-name">
-            <label for="book-name">The Name of The Book:</label>
-            <input type="text" class="author-name" id="author-name">
-            <label for="author-name">Author's Name:</label>
-            <input type="number" class="number-of-pages" id="number-of-pages">
-            <label for="number-of-pages">Number of Pages:</label>
-        </form>
-    </div>
-   
-    <div class="books-container">
-        <div class="card">
-            <h3 class="book-name"></h3>
-            <h3 class="author-name"></h3>
-            <h3 class="num-of-pages"></h3>
-            <button class="read">
+    
+    <div class="wrapper">
+        
+        <header>
+            <h3 class="app-title">Library.</h3>
+        </header>
+        <div class="add-book-button-container">
+            <button class="new-book">+ New Book</button>
+        </div>
+       
+     <div class="modal-background">
+        <div class="form-popup-container">
+            <div class="form-popup" >
+                <h3 class="popup-title" >Add New Book</h3>
+                <form class="book-form" id ="book-form">
+                    <div class="inputs-container" >
+                        <input type="number" class="number-of-pages" id="number-of-pages" required>
+                        <label for="number-of-pages">Number of Pages:</label>
+                        <input type="text" class="author-name" id="author-name" required>
+                        <label for="author-name">Author's Name:</label>
+                        <input type="text" class ="book-name" id="book-name" required>
+                        <label for="book-name">The Name of The Book:</label>
+                    </div>
+                    <button id="submit" type="submit">Add Book</button>
+                    <div class="readbook-container">
+                        <form action="">
+                            <label for="read-validation">
+                                Have you read this book?
+                            </label>
+                            <input type="checkbox" id="read-validation" >
 
-            </button>
-            <button class="remove">
-
-            </button>
+                        </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+       
+        <div class="books-container">
+           
+            <div class="card">
+                <h3 class="book-name"></h3>
+                <h3 class="author-name"></h3>
+                <h3 class="num-of-pages"></h3>
+                <button class="read"> </button>
+                <button class="remove">
+                </button>
+            </div>
         </div>
     </div>
 </body>

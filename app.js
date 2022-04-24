@@ -18,10 +18,28 @@ book.prototype.info = function() {
             return `${this.title} by ${this.author},  ${this.numPages} pages, not read yet.`;
         }      
     }
+let popUp = document.querySelector('.modal-background');
+const wrapper = document.querySelector('.wrapper');
 
-const addBookButton = document.querySelector('.new-book');
-addBookButton.addEventListener('click', () => {
+
+const form = document.getElementById('book-form');
+
+form.addEventListener('submit', () =>  {
+    let name = document.getElementById('book-name').value;
+    console.log(name);
+});
+
+
+
+
+popUp.style.visibility = `visible`
+let addBookButton = document.querySelector('.new-book');
+addBookButton.addEventListener("click", () => {
+    let card = document.createElement('div');
+    
+    popUp.style.visibility = `visible`;
     let newBook = new book()
+    
    
 })
 
@@ -33,6 +51,15 @@ function userReadBookStat() {
     readBook = false;
     return readBook;
 }
+function getSelectItemThat(id) {
+    for (let i = 1;i <= 3; i++)
+    {
+        document.getElementById(i).checked = false;
+    }
+    document.getElementById(id).checked = true;
+}
+
+
 
 
 const book1 = new book("Lord Of The Rings", "J.R.R. Tolkien",295)
