@@ -26,16 +26,14 @@
         <div class="form-popup-container">
             <div class="form-popup" >
                 <h3 class="popup-title" >Add New Book</h3>
-                <form class="book-form" id ="book-form">
-                    <div class="inputs-container" >
-                        <input type="number" class="number-of-pages" id="number-of-pages" required>
-                        <label for="number-of-pages">Number of Pages:</label>
-                        <input type="text" class="author-name" id="author-name" required>
-                        <label for="author-name">Author's Name:</label>
+                <form class="book-form" id ="book-form" action="" method="POST">
+                        <label for="book-name">The Name of The Book:</label>    
                         <input type="text" class ="book-name" id="book-name" required>
-                        <label for="book-name">The Name of The Book:</label>
-                    </div>
-                    <button id="submit" type="submit">Add Book</button>
+                        <label for="author-name">Author's Name:</label>
+                        <input type="text" class="author-name" id="author-name" required>
+                        <label for="number-of-pages">Number of Pages:</label>
+                        <input type="number" class="number-of-pages" id="number-of-pages" required>
+                        <button id="submit" type="submit">Add Book</button>
                     <div class="readbook-container">
                         <form action="">
                             <label for="read-validation">

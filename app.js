@@ -18,57 +18,49 @@ book.prototype.info = function() {
             return `${this.title} by ${this.author},  ${this.numPages} pages, not read yet.`;
         }      
     }
-let popUp = document.querySelector('.modal-background');
+const popUp = document.querySelector('.form-popup');
+const modalLayover = document.querySelector('.modal-background')
+popUp.style.visibility = 'hidden';
+modalLayover.style.visibility = 'hidden';
 const wrapper = document.querySelector('.wrapper');
 
 
 const form = document.getElementById('book-form');
 
-form.addEventListener('submit', () =>  {
-    let name = document.getElementById('book-name').value;
-    console.log(name);
+
+form.addEventListener('submit', (event) =>  {
+
+    event.preventDefault();
+    popUp.style.display = 'block';
+    const bookName = document.getElementById('book-name').value;
+    const bookAuthor = document.getElementById('author-name').value;
+    const bookNumPages = document.getElementById('number-of-pages').value;
+    let read = document.getElementById('read-validation');
+    if(read.checked) {
+        read = true;
+    }else {
+        read = false;
+    }
+    
+    popUp.style.visibility = 'hidden';
+    modalLayover.style.visibility = 'hidden';
+
+    alert(`${bookName}, ${bookAuthor}, ${bookNumPages}, ${read}`);
+    const book1 = new book(bookName, bookAuthor, bookNumPages, read);
+    book1.addBookToLibrary();
 });
 
 
-
-
-popUp.style.visibility = `visible`
 let addBookButton = document.querySelector('.new-book');
-addBookButton.addEventListener("click", () => {
-    let card = document.createElement('div');
-    
+addBookButton.addEventListener("click", () => { 
+    form.reset();
     popUp.style.visibility = `visible`;
-    let newBook = new book()
-    
-   
+    modalLayover.style.visibility = 'visible';
+
 })
 
-function userReadBookStat() {
-    let readBook = true;
-    if (confirm("Have You Read The Book?")) {
-        return readBook;
-    }
-    readBook = false;
-    return readBook;
-}
-function getSelectItemThat(id) {
-    for (let i = 1;i <= 3; i++)
-    {
-        document.getElementById(i).checked = false;
-    }
-    document.getElementById(id).checked = true;
-}
 
 
 
-
-const book1 = new book("Lord Of The Rings", "J.R.R. Tolkien",295)
-const book2 = Object.create(book1);
-book1.addBookToLibrary()
-book2.addBookToLibrary();
-
-console.log(book1.info())
-console.log(book1.author)
-console.log(book2.author)
 
 console.log(myLibrary)
