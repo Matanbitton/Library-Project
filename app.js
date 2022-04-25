@@ -53,11 +53,13 @@ function createBookCard(book) {
 
 function readButtonState(book,button) {
     if (book.read) {
-        button.innerText = "Didn't Read";
-        button.style.backgroundColor = "rgb(218, 79, 79)";
-    }else {
         button.innerText = "Read";
         button.style.backgroundColor = "rgb(49, 206, 49)";
+      
+    }else {
+        button.innerText = "Didn't Read";
+        button.style.backgroundColor = "rgb(218, 79, 79)";
+      
     }
     button.addEventListener("click", () => {
         
@@ -72,9 +74,6 @@ function readButtonState(book,button) {
            button.style.backgroundColor = "rgb(49, 206, 49)";
            
         }
-        console.log(book.read)
-
-        console.log(myLibrary)
      
     });
         
@@ -132,11 +131,9 @@ addBookButton.addEventListener("click", () => {
     form.reset();
     showForm(popUp);
     showForm(modalLayover);
-    console.log(myLibrary)
 });
 
 
 function removeFromLibrary(bookPlaceInArray) {
      delete(myLibrary[bookPlaceInArray]);
-     console.log(myLibrary);
 }   
