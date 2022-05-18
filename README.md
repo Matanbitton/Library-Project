@@ -1,5 +1,5 @@
 # Library-Project
-# Calculator
+
 - 👨‍💻 See the live version of this project at **[Library](https://matanbitton.github.io/Library-Project/)**
 
 ## About The Project
