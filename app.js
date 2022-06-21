@@ -25,37 +25,54 @@ const library = new Library();
 // this function creates the card component
 
 function createBookCard(book) {
-  const card = document.createElement("div");
-  card.className = "card";
-  card.dataset.title = book.title;
+  const card = createHtmlElement("div", "card", book.title);
+  const cardBookNameSection = createHtmlElement(
+    "p",
+    "card-book-name",
+    "",
+    `Book Name: ${book.title}`
+  );
+  const cardAuthorNameSection = createHtmlElement(
+    "p",
+    "card-author-name",
+    "",
+    `Author: ${book.author}`
+  );
 
-  const cardBookNameSection = document.createElement("p");
-  cardBookNameSection.className = "card-book-name";
-  cardBookNameSection.innerText = `Book Name: ${book.title}`;
+  const cardNumOfPages = createHtmlElement(
+    "p",
+    "card-num-of-pages",
+    "",
+    `Pages: ${book.numPages}`
+  );
 
-  const cardAuthorNameSection = document.createElement("p");
-  cardAuthorNameSection.className = "card-author-name";
-  cardAuthorNameSection.innerText = `Author: ${book.author}`;
-
-  const cardNumOfPages = document.createElement("p");
-  cardNumOfPages.className = "card-num-of-pages";
-  cardNumOfPages.innerText = `Pages: ${book.numPages}`;
-
-  const readButton = document.createElement("button");
-  readButton.className = "read-button";
+  const readButton = createHtmlElement("button", "read-button", "", "");
   readButtonState(book, readButton);
-
-  const removeButton = document.createElement("button");
-  removeButton.className = "remove";
-  removeButton.innerText = "Remove";
+  const removeButton = createHtmlElement(
+    "button",
+    "remove-button",
+    "",
+    "Remove"
+  );
   removeButtonFunctionality(card, removeButton);
 
-  card.append(cardBookNameSection);
-  card.append(cardAuthorNameSection);
-  card.append(cardNumOfPages);
-  card.append(readButton);
-  card.append(removeButton);
+  card.append(
+    cardBookNameSection,
+    cardAuthorNameSection,
+    cardNumOfPages,
+    readButton,
+    removeButton
+  );
   booksContainer.append(card);
+}
+
+function createHtmlElement(element, elementClass, data, text) {
+  const el = document.createElement(element);
+  if (elementClass) el.className = elementClass;
+  if (text) el.innerText = text;
+  if (data) el.dataset.title = data;
+
+  return el;
 }
 
 function readButtonState(book, button) {
