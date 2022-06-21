@@ -91,9 +91,35 @@ const popUp = document.querySelector(".form-popup");
 const modalLayover = document.querySelector(".modal-background");
 const booksContainer = document.querySelector(".books-container");
 const form = document.getElementById("book-form");
+const bookNameInputField = document.querySelector("#book-name");
+const authorNameInputField = document.querySelector("#author-name");
+const numOfPagesInputField = document.querySelector("#number-of-pages");
 
 hideForm(popUp);
 hideForm(modalLayover);
+
+function setErrorMessagesOnInputs(formInput, errorMessage) {
+  formInput.addEventListener("input", () => {
+    formInput.setCustomValidity("");
+    formInput.checkValidity();
+  });
+
+  formInput.addEventListener("invalid", () => {
+    if (formInput.value === "") {
+      formInput.setCustomValidity(errorMessage);
+    }
+  });
+}
+
+setErrorMessagesOnInputs(bookNameInputField, "Please enter book name");
+setErrorMessagesOnInputs(
+  authorNameInputField,
+  "Please enter the author's name"
+);
+setErrorMessagesOnInputs(
+  numOfPagesInputField,
+  "Please enter the number of pages"
+);
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
